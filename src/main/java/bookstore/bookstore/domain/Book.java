@@ -9,14 +9,14 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String title,author;
-    private int publicationYear,isbn,price;
+    private String title,author,isbn;
+    private int publicationYear,price;
     
     
     public Book() {
     }
 
-    public Book(String title, String author, int publicationYear, int isbn, int price) {
+    public Book(String title, String author, int publicationYear, String isbn, int price) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -48,11 +48,11 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

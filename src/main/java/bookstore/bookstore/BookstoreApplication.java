@@ -22,9 +22,9 @@ public class BookstoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository repository) {
 	return (args) -> {
-		Book book1 = new Book("sadad","adadad",1990,1919191,11);
-		Book book2 = new Book("sfmksfmk","kamckam",1990,1919191,33);
-		Book book3 = new Book("pscpslcp","öldöadö",1990,1919191,44);
+		Book book1 = new Book("The Let Them Theory","Mel Robbins",2024,"978‑1401971366",11);
+		Book book2 = new Book("Sunrise on the Reaping","Suzanne Collins",2025,"978‑1‑5461‑7146‑1",33);
+		Book book3 = new Book("Atomic Habits","James Clear",2018,"978‑0‑735‑21129‑2",44);
 		// Your code...add some demo data to db
 		repository.save(book1);
 		repository.save(book2);
