@@ -13,13 +13,21 @@
 			<th>Year</th>
 			<th>Price</th>
 		</tr>
-    	<tr th:each = "book : ${books}">
-    		<td th:text="${book.author}"></td>
+    	<tr th:each = "repo : ${repo}">
+    		<td th:text="${repo.author}"></td>
+			<td th:text="${repo.title}"></td>
+			<td th:text="${repo.isbn}"></td>
+    		<td th:text="${repo.publicationYear}"></td>
+    		<td th:text="${repo.price} + '€'"></td>
+    	</tr>
+		<tr th:each = "book : ${books}">
+			<td th:text="${book.author}"></td>
 			<td th:text="${book.title}"></td>
 			<td th:text="${book.isbn}"></td>
-    		<td th:text="${book.publicationYear}"></td>
-    		<td th:text="${book.price} + '€'"></td>
-    	</tr>
-     </table>    	
+			<td th:text="${book.publicationYear}"></td>
+			<td th:text="${book.price} + '€'"></td>
+		</tr>
+     </table>
+	 <p><a th:href="@{books}">Add book</a></p>    	
 </body>
 </html>
