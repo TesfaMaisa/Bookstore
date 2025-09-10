@@ -2,18 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 	<title>Booklist</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-	<h1>Books</h1>
-	<table>
-		<th>Author</th>
-		<th>Title</th>
+	<style>
+		td {
+			color: orange;
+		}
+
+		h1 {
+			color: orange;
+		}
+
+		body {
+			background-color: blueviolet;
+		}
+	</style>
+	<h1>Kirjat</h1>
+	<table class="table table-dark">
+		<th>Tekijä</th>
+		<th>Nimi</th>
 		<th>ISBN</th>
-		<th>Year</th>
-		<th>Price</th>
+		<th>Vuosi</th>
+		<th>Hinta</th>
 		</tr>
 		<tr th:each="repo : ${repo}">
 			<td th:text="${repo.author}"></td>
@@ -21,7 +35,7 @@
 			<td th:text="${repo.isbn}"></td>
 			<td th:text="${repo.publicationYear}"></td>
 			<td th:text="${repo.price} + '€'"></td>
-			<td><a th:href="@{/delete/{id}(id=${repo.id})}">Delete</a></td>
+			<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${repo.id})}">Poista</a></td>
 		</tr>
 		<tr th:each="book : ${books}">
 			<td th:text="${book.author}"></td>
@@ -29,11 +43,11 @@
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.publicationYear}"></td>
 			<td th:text="${book.price} + '€'"></td>
-			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+			<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${book.id})}">Poista</a></td>
 
 		</tr>
 	</table>
-	<p><a th:href="@{add}">Add book</a></p>
+	<p><a class="btn btn-success" th:href="@{add}">Lisää kirja</a></p>
 </body>
 
 </html>
