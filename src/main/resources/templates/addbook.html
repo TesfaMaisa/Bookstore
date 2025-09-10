@@ -8,7 +8,7 @@
 
 <body>
     <h1>Books</h1>
-        <form action="#" th:action="@{books}" th:object="${book}" method="post">
+        <form action="#" th:action="@{save}" th:object="${book}" method="post">
            <table>
             <tr>
                 <td>Author: <input type="text" th:field="*{author}"/></td>

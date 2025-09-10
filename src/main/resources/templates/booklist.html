@@ -1,33 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Booklist</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Booklist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
 	<h1>Books</h1>
-    <table>
-			<th>Author</th>
-			<th>Title</th>
-			<th>ISBN</th>
-			<th>Year</th>
-			<th>Price</th>
+	<table>
+		<th>Author</th>
+		<th>Title</th>
+		<th>ISBN</th>
+		<th>Year</th>
+		<th>Price</th>
 		</tr>
-    	<tr th:each = "repo : ${repo}">
-    		<td th:text="${repo.author}"></td>
+		<tr th:each="repo : ${repo}">
+			<td th:text="${repo.author}"></td>
 			<td th:text="${repo.title}"></td>
 			<td th:text="${repo.isbn}"></td>
-    		<td th:text="${repo.publicationYear}"></td>
-    		<td th:text="${repo.price} + '€'"></td>
-    	</tr>
-		<tr th:each = "book : ${books}">
+			<td th:text="${repo.publicationYear}"></td>
+			<td th:text="${repo.price} + '€'"></td>
+			<td><a th:href="@{/delete/{id}(id=${repo.id})}">Delete</a></td>
+		</tr>
+		<tr th:each="book : ${books}">
 			<td th:text="${book.author}"></td>
 			<td th:text="${book.title}"></td>
 			<td th:text="${book.isbn}"></td>
 			<td th:text="${book.publicationYear}"></td>
 			<td th:text="${book.price} + '€'"></td>
+			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+
 		</tr>
-     </table>
-	 <p><a th:href="@{books}">Add book</a></p>    	
+	</table>
+	<p><a th:href="@{add}">Add book</a></p>
 </body>
+
 </html>
