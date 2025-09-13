@@ -2,30 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Kirjalista</title>
+    <b>
+        <title>Kirjalista</title>
+    </b>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 
 <body>
     <style>
-        td{color: orange;}
-        h1{color: orange;}
-        body{background-color: blueviolet;}
+        td {
+            color: orange;
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        body {
+            background-color: blueviolet;
+        }
     </style>
-    <h1>Kirjat</h1>
-        <form action="#" th:action="@{save}" th:object="${book}" method="post">
-           <table class="table table-dark">
+    <b>
+        <h1>Kirjat</h1>
+    </b>
+    <form action="#" th:action="@{save}" th:object="${book}" method="post">
+        <table class="table table-dark">
             <tr>
-                <td>Tekijä: <input type="text" th:field="*{author}"/></td>
-                <td>Nimi: <input type="text" th:field="*{title}"/></td>
-                <td>ISBN: <input type="text" th:field="*{isbn}"/></td>
-                <td>Vuosi: <input type="text" th:field="*{publicationYear}"/></td>
-                <td>Hinta: <input type="text" th:field="*{price}"/></td>
+                <td>Tekijä: <input type="text" th:field="*{author}" /></td>
+                <td>Nimi: <input type="text" th:field="*{title}" /></td>
+                <td>ISBN: <input type="text" th:field="*{isbn}" /></td>
+                <td>Vuosi: <input type="text" th:field="*{publicationYear}" /></td>
+                <td>Hinta: <input type="text" th:field="*{price}" /></td>
+                <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</td>
             </tr>
-           </table> 
-        <p><input class="btn btn-success" type="submit" value="Lisää"/> <a class="btn btn-warning" th:href="@{books}">Kaikki kirjat</a></p>
-        </form>
+        </table>
+        <p><input class="btn btn-success" type="submit" value="Lisää" /> <a class="btn btn-warning"
+                th:href="@{books}">Kaikki kirjat</a></p>
+    </form>
 </body>
 
 </html>

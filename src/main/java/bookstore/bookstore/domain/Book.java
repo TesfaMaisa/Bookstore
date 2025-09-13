@@ -1,16 +1,27 @@
 package bookstore.bookstore.domain;
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String title,author,isbn;
+    private String author,isbn;
     private int publicationYear,price;
+
+    @NotEmpty(message = "Books title cant be empty.")
+    @Size(min = 1,max = 250)
+    private String title;
+
     
     
     public Book() {
