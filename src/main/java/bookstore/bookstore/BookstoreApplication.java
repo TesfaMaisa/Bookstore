@@ -34,9 +34,9 @@ public class BookstoreApplication {
 			Crepository.save(category3);
 			
 
-		Book book1 = new Book("The Let Them Theory","Mel Robbins",2024,"978‑1401971366",11, category1);
-		Book book2 = new Book("Sunrise on the Reaping","Suzanne Collins",2025,"978‑1‑5461‑7146‑1",33,category2);
-		Book book3 = new Book("Atomic Habits","James Clear",2018,"978‑0‑735‑21129‑2",44,category3);
+		Book book1 = new Book("The Let Them Theory","Mel Robbins",2024,"978‑14-019-7136-6",11, category1);
+		Book book2 = new Book("Sunrise on the Reaping","Suzanne Collins",2025,"978‑154-61‑7146‑1",33,category2);
+		Book book3 = new Book("Atomic Habits","James Clear",2018,"978‑0735‑21-129‑2",44,category3);
 		// Your code...add some demo data to db
 		repository.save(book1);
 		repository.save(book2);

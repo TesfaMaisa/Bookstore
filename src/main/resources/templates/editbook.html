@@ -43,6 +43,7 @@
         <div>
             <label>ISBN</label>
             <input type="text" th:field="*{isbn}" />
+            <div th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">Error</div>
         </div>
         <div>
             <label>Vuosi</label>

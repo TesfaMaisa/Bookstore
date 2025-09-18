@@ -20,7 +20,8 @@ public class Book {
 
     private int publicationYear;
 
-    @NotEmpty(message = "ISBN cant be empy")
+    @NotEmpty(message = "ISBN cant be empty")
+    @Size(min = 17, max = 17)
     private String isbn;
 
     @NotEmpty(message = "Books title cant be empty.")
