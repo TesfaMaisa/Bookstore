@@ -30,13 +30,25 @@
         <table class="table table-dark">
             <tr>
                 <td>Tekijä: <input type="text" th:field="*{author}" /></td>
+                <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Error</div>
                 <td>Nimi: <input type="text" th:field="*{title}" /></td>
+                <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
                 <td>ISBN: <input type="text" th:field="*{isbn}" /></td>
+                <div th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">Error</div>
                 <td>Vuosi: <input type="text" th:field="*{publicationYear}" /></td>
                 <td>Hinta: <input type="text" th:field="*{price}" /></td>
-                <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</td>
+                <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</div>
+                <td>Kategoria:
+                    <select th:field="*{category}" class="form-control">
+                        <option th:each="category: ${categories}" th:value="${category.categoryid}"
+                            th:text="${category.name}"></option>
+                    </select>
+                </td>
             </tr>
+
         </table>
+
+
         <p><input class="btn btn-success" type="submit" value="Lisää" /> <a class="btn btn-warning"
                 th:href="@{books}">Kaikki kirjat</a></p>
     </form>

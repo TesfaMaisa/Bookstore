@@ -2,37 +2,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <b><title>Kirjalista</title></b>
+    <b>
+        <title>Kirjalista</title>
+    </b>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 
 <body>
     <style>
-        td{color: orange;}
-        h1{color: orange;}
-        body{background-color: blueviolet;}
+        td {
+            color: orange;
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        body {
+            background-color: blueviolet;
+        }
     </style>
-    <b><h1>Kirjat</h1></b>
-        <form action="#" th:action="@{/saveEdit}" th:object="${edit}" method="post">
-            <div>
-                <label>Tekijä</label>
-                <input type="text" th:field="*{author}"/>
-            </div>
-            <div>
-                <label>Nimi</label>
-                <input type="text" th:field="*{title}"/>
-            </div>
-            <div>
-                <label>Vuosi</label>
-                <input type="text" th:field="*{publicationYear}"/>
-            </div>
-            <div>
-                <label>Hinta</label>
-                <input type="text" th:field="*{price}"/>
-            </div>
-        <p><input class="btn btn-success" type="submit" value="Lisää"/> <a class="btn btn-warning" th:href="@{/books}">Kaikki kirjat</a></p>
-        </form>
+    <b>
+        <h1>Kirjat</h1>
+    </b>
+    <form action="#" th:action="@{/saveEdit}" th:object="${edit}" method="post">
+        <input type="text" id="id" th:field="*{id}" readonly hidden>
+        <div>
+            <label>Tekijä</label>
+            <input type="text" th:field="*{author}" />
+            <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Error</div>
+
+        </div>
+        <div>
+            <label>Nimi</label>
+            <input type="text" th:field="*{title}" />
+            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
+
+        </div>
+        <div>
+            <label>ISBN</label>
+            <input type="text" th:field="*{isbn}" />
+        </div>
+        <div>
+            <label>Vuosi</label>
+            <input type="text" th:field="*{publicationYear}" />
+        </div>
+        <div>
+            <label>Hinta</label>
+            <input type="text" th:field="*{price}" />
+        </div>
+        <div>
+            <label>Kategoria</label>
+            <select th:field="*{category}" class="form-control">
+                <option th:each="category: ${categories}" th:value="${category.categoryid}"
+                    th:text="${category.name}"></option>
+            </select>
+        </div>
+        <p><input class="btn btn-success" type="submit" value="Lisää" /> <a class="btn btn-warning"
+                th:href="@{/books}">Kaikki kirjat</a></p>
+    </form>
 </body>
 
 </html>
