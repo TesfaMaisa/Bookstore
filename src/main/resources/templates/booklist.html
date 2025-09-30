@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
@@ -21,14 +21,20 @@
 			background-color: blueviolet;
 		}
 	</style>
-	<b><h1>Kirjat</h1></b>
-	<center><h1 style="color: rgb(229, 255, 0);">Hei <span sec:authentication="name"></span>!</h1></center>
+	<b>
+		<h1>Kirjat</h1>
+	</b>
+
+	<center>
+		<h1 style="color: rgb(0, 242, 255);">Hei <span th:text="${#authentication.name}"></span>!<p style="font-size: medium; color: rgb(5, 18, 20);" sec:authentication="principal.authorities"></p></h1>
+	</center>
 	<table class="table table-dark">
 		<th>Tekijä</th>
 		<th>Nimi</th>
 		<th>ISBN</th>
 		<th>Vuosi</th>
 		<th>Hinta</th>
+		<th>Kategoria</th>
 		</tr>
 		<tr th:each="repo : ${repo}">
 			<td th:text="${repo.author}"></td>
@@ -37,13 +43,15 @@
 			<td th:text="${repo.publicationYear}"></td>
 			<td th:text="${repo.price} + '€'"></td>
 			<td th:text="${repo.category.name !=null ? repo.category.name : 'Ei Kategoriaa'}"></td>
-			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-danger" th:href="@{/delete/{id}(id=${repo.id})}">Poista</a></td>
-			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-dark" th:href="@{/edit/{id}(id=${repo.id})}">Muokkaa</a></td>
+			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-danger"
+					th:href="@{/delete/{id}(id=${repo.id})}">Poista</a></td>
+			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-dark"
+					th:href="@{/edit/{id}(id=${repo.id})}">Muokkaa</a></td>
 		</tr>
 	</table>
 	<p><a class="btn btn-success" th:href="@{add}">Lisää kirja</a></p>
 	<form th:action="@{/logout}" method="post">
-		<input class="btn btn-danger"  type="submit" value="Kirjaudu ulos">
+		<input class="btn btn-danger" type="submit" value="Kirjaudu ulos">
 	</form>
 </body>
 

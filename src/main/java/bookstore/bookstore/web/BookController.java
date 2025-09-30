@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import bookstore.bookstore.domain.AppUser;
+import bookstore.bookstore.domain.AppUserRepository;
 import bookstore.bookstore.domain.Book;
 import bookstore.bookstore.domain.BookRepository;
 import bookstore.bookstore.domain.CategoryRepository;

@@ -11,7 +11,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
     // Username with unique constraint
@@ -64,6 +64,12 @@ public class AppUser {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser [id=" + id + ", username=" + username + ", passwordHash=" + passwordHash + ", role=" + role
+                + "]";
     }
 
     
