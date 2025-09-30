@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<title>Booklist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<style>
+		h1 {
+			color: orange;
+		}
+		h2 {
+			color: orange;
+		}
+		div {
+			color: red;
+		}
+
+		body {
+			background-color: blueviolet;
+		}
+	</style>
+    <center><b><h1>Kirjaudu sisään</h1></b></center>
+<h1 style="color: red;" th:if="${param.error}">
+   Väärä tunnukset!
+</h1>
+ <h1 style="color: white;" class="alert alert-warning" th:if="${param.logout}">
+            Sinut on kirjattu ulos
+        </h1>
+<form th:action="@{/login}" method="post">
+   <h2><label> User Name : <input type="text" name="username"/> </label></h2>
+   <h2><label> Password: <input type="password" name="password"/> </label></h2>
+   <div><input type="submit" value="Kirjaudu sisään"/></div>
+</form>

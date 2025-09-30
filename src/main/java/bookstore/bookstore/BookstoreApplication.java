@@ -1,5 +1,6 @@
 package bookstore.bookstore;
 
+import org.h2.engine.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -7,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import bookstore.bookstore.domain.AppUser;
+import bookstore.bookstore.domain.AppUserRepository;
 import bookstore.bookstore.domain.Book;
 import bookstore.bookstore.domain.BookRepository;
 import bookstore.bookstore.domain.Category;
@@ -20,12 +23,12 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository Crepository) {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository Crepository, AppUserRepository userRepository) {
 	return (args) -> {
 
-			Category category1 = new Category( "IT");
-			Category category2 = new Category("BT");
-			Category category3 = new Category("KP");
+			Category category1 = new Category( "Horror");
+			Category category2 = new Category("Romance");
+			Category category3 = new Category("Comedy");
 			Category category4 = new Category(null);
 			
 			Crepository.save(category4);
@@ -41,6 +44,13 @@ public class BookstoreApplication {
 		repository.save(book1);
 		repository.save(book2);
 		repository.save(book3);
+
+		AppUser user1 = new AppUser("Abus", "$2a$10$3nJrqaGwEA7wE6ycSUiTMunJ8uVfrpEL58fc52beyOuXHeSePolyC", "ADMIN");
+		AppUser user2 = new AppUser("Nugus", "$2a$10$X5uyOh6r5mc3V3BqtDRI7eeEAwyeQtXeanIUAku0gWRP2VmoHFZIq", "USER");
+
+		userRepository.save(user1);
+		userRepository.save(user2);
+
 	};
 }
 

@@ -24,7 +24,7 @@
         }
     </style>
     <b>
-        <h1>Kirjat</h1>
+        <h1>Muokkaa Kirjaa</h1>
     </b>
     <form action="#" th:action="@{/saveEdit}" th:object="${edit}" method="post">
         <input type="text" id="id" th:field="*{id}" readonly hidden>
@@ -61,7 +61,7 @@
             </select>
         </div>
         <p><input class="btn btn-success" type="submit" value="Lisää" /> <a class="btn btn-warning"
-                th:href="@{/books}">Kaikki kirjat</a></p>
+                th:href="@{/booklist}">Kaikki kirjat</a></p>
     </form>
 </body>
 
