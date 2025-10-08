@@ -3,6 +3,7 @@
 
 <head>
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<Link rel="stylesheet" href="./animaatio.css" />
 	<title>Booklist</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -26,7 +27,7 @@
 	</b>
 
 	<center>
-		<h1 style="color: rgb(0, 242, 255);">Hei <span th:text="${#authentication.name}"></span>!<p style="font-size: medium; color: rgb(5, 18, 20);" sec:authentication="principal.authorities"></p></h1>
+		<h1>Hei <span class="role" th:text="${#authentication.name}"></span>!<p style="font-size: medium; color: rgb(97, 184, 255);" sec:authentication="principal.authorities"></p></h1>
 	</center>
 	<table class="table table-dark">
 		<th>Tekijä</th>
@@ -49,7 +50,7 @@
 					th:href="@{/edit/{id}(id=${repo.id})}">Muokkaa</a></td>
 		</tr>
 	</table>
-	<p><a class="btn btn-success" th:href="@{add}">Lisää kirja</a></p>
+	<p><a sec:authorize="hasAuthority ('ADMIN')" class="btn btn-success" th:href="@{add}">Lisää kirja</a></p>
 	<form th:action="@{/logout}" method="post">
 		<input class="btn btn-danger" type="submit" value="Kirjaudu ulos">
 	</form>

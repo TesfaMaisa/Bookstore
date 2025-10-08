@@ -27,7 +27,7 @@
 <h1 style="color: red;" th:if="${param.error}">
    Väärä tunnukset!
 </h1>
- <h1 style="color: white;" class="alert alert-warning" th:if="${param.logout}">
+ <h1 style="color: white;" th:if="${param.logout}">
             Sinut on kirjattu ulos
         </h1>
 <form th:action="@{/login}" method="post">

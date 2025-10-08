@@ -1,0 +1,20 @@
+.muutos {
+    animation: color-change 5s ease-in-out;
+  }
+
+@keyframes color-change {
+    0% { color: rgb(89, 214, 255) }
+    50% { color: rgb(100, 214, 255)}
+    100% { color: rgb(200, 214, 255) }
+    100% { color: rgb(200, 214, 255) }
+    50% { color: rgb(100, 214, 255)}
+    0% { color: rgb(89, 214, 255) }
+  }
+
+  .role{
+    display: none;
+  }
+  .role:hover{
+    display:flexbox;
+    transform: scale(1.2);
+  }
