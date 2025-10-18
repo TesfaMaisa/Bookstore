@@ -63,7 +63,7 @@ public class BookController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable("id") Long bookid, Model model) {
         repository.deleteById(bookid);
-        return "redirect:..booklist";
+        return "redirect:../booklist";
     }
 
     @GetMapping("edit/{id}")
