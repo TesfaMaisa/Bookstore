@@ -40,7 +40,7 @@ public class WebSecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .headers(headers -> headers.frameOptions(frameOptions -> frameOptions
                         .disable())) // for h2console
-                .formLogin(formlogin -> formlogin.loginPage("/login")
+                .formLogin(formlogin -> formlogin.loginPage("login")
                         .defaultSuccessUrl("/booklist", true)
                         .permitAll())
                 .logout(logout -> logout.permitAll())
