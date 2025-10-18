@@ -84,9 +84,9 @@ public class BookController {
         return "redirect:/booklist";
     }
 
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "login")
     public String login() {
-        return "/login";
+        return "login";
     }
 
 }
