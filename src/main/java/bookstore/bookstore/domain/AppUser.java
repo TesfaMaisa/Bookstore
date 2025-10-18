@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity(name = "Users")
+@Table(name = "application_user")
 public class AppUser {
 
     @Id
@@ -15,13 +17,13 @@ public class AppUser {
     private Long id;
 
     // Username with unique constraint
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "application_username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "application_password", nullable = false)
     private String passwordHash;
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "application_role", nullable = false)
     private String role;
 
     public AppUser() {

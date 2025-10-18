@@ -43,7 +43,7 @@
 			<td th:text="${repo.isbn}"></td>
 			<td th:text="${repo.publicationYear}"></td>
 			<td th:text="${repo.price} + '€'"></td>
-			<td th:text="${repo.category.name !=null ? repo.category.name : 'Ei Kategoriaa'}"></td>
+			<td th:text="${repo.category?.name ?: 'Ei Kategoriaa'}"></td>
 			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-danger"
 					th:href="@{/delete/{id}(id=${repo.id})}">Poista</a></td>
 			<td sec:authorize="hasAuthority ('ADMIN')"><a class="btn btn-dark"

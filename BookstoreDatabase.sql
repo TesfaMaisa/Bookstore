@@ -24,7 +24,7 @@ CREATE TABLE book (
     category_id BIGINT REFERENCES category(id)
 );
 
-INSERT INTO book (title, author, publicationYear, isbn, price, category_id) 
+INSERT INTO book (title, author, publication_year, isbn, price, category_id) 
 VALUES 
 ('The Let Them Theory', 'Mel Robbins', 2024, '978-14-019-7136-6', 11, 1),
 ('Sunrise on the Reaping', 'Suzanne Collins', 2025, '978-154-61-7146-1', 33, 3),
