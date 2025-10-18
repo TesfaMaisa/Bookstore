@@ -34,44 +34,44 @@ public class BookController {
     @RequestMapping("booklist")
     public String showBooks(Book book, Model model) {
         model.addAttribute("repo", repository.findAll());
-        return "/booklist";
+        return "booklist";
     }
 
     @RequestMapping("/")
     public String path() {
-        return "redirect:/booklist";
+        return "redirect:booklist";
     }
 
     @RequestMapping("add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", Categoryrepo.findAll());
-        return "/addbook";
+        return "addbook";
     }
 
     @PostMapping("save")
     public String save(@Valid Book book, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("categories", Categoryrepo.findAll());
-            return "/addbook";
+            return "addbook";
         }
         repository.save(book);
-        return "redirect:/booklist";
+        return "redirect:booklist";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("delete/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable("id") Long bookid, Model model) {
         repository.deleteById(bookid);
-        return "redirect:../booklist";
+        return "redirect:..booklist";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("edit/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String editBook(@PathVariable Long id, Model model) {
         model.addAttribute("edit", repository.findById(id));
         model.addAttribute("categories", Categoryrepo.findAll());
-        return "/editbook";
+        return "editbook";
     }
 
     @PostMapping("saveEdit")
@@ -81,7 +81,7 @@ public class BookController {
             return "editbook";
         }
         repository.save(book);
-        return "redirect:/booklist";
+        return "redirect:booklist";
     }
 
     @RequestMapping(value = "login")
