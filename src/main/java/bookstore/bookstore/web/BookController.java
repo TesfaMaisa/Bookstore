@@ -37,10 +37,10 @@ public class BookController {
         return "/booklist";
     }
 
-    // @RequestMapping("/")
-    // public String path() {
-    //     return "redirect:/booklist";
-    // }
+    @RequestMapping("/")
+    public String path() {
+        return "redirect:/booklist";
+    }
 
     @RequestMapping("add")
     public String addBook(Model model) {
